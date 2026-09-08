@@ -17,7 +17,8 @@ jobs:
         with:
           node-version: 22
           cache: true
-          sfw: true
+          # The Socket proxy cannot fetch preview metadata from the registry bridge.
+          sfw: ${{ github.repository_owner != 'vite-plus-ecosystem-ci' }}
 
       - name: Build
         run: vp run build
