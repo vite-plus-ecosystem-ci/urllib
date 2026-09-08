@@ -17,9 +17,13 @@ jobs:
         with:
           node-version: 22
           cache: true
-          sfw: true
+          # The Socket proxy cannot fetch preview metadata from the registry bridge.
+          sfw: ${{ github.repository_owner != 'vite-plus-ecosystem-ci' }}
 
       - name: Build
         run: vp run build
 
       - run: vp dlx pkg-pr-new publish
+        # Ecosystem smoke test: publishing needs credentials unavailable on the fork.
+        if: ${{ github.repository_owner != 'vite-plus-ecosystem-ci' }}
+        name: Publish preview package
