@@ -2,12 +2,7 @@
 import { defineConfig } from 'vite-plus';
 
 export default defineConfig({
-  pack: {
-    entry: ['src/index.ts'],
-    format: 'esm',
-    dts: true,
-    sourcemap: true,
-  },
+  pack: { deps: { resolveDepSubpath: true }, entry: ['src/index.ts'], format: 'esm', dts: true, sourcemap: true },
   staged: {
     '*': 'vp check --fix',
   },
@@ -162,6 +157,7 @@ export default defineConfig({
   },
   // plugins: [codspeedPlugin()],
   test: {
+    clearMocks: false,
     include: ['test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     setupFiles: ['./test/setup.ts'],
     testTimeout: 60000,
