@@ -22,4 +22,5 @@ jobs:
       - name: Build
         run: vp run build
 
-      - run: vp dlx pkg-pr-new publish
+      - if: ${{ github.repository_owner != 'vite-plus-ecosystem-ci' }}
+        run: vp dlx pkg-pr-new publish
