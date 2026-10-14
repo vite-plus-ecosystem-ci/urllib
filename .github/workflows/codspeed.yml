@@ -24,8 +24,15 @@ jobs:
           node-version: '24'
           cache: true
 
+      # Ecosystem-ci smoke test: CodSpeed rejects the upload without the upstream
+      # token (401). Run the same benchmarks on the fork, without the upload.
       - name: Run benchmarks
+        if: ${{ github.repository_owner != 'vite-plus-ecosystem-ci' }}
         uses: CodSpeedHQ/action@v5
         with:
           mode: simulation
           run: vp test bench --run
+
+      - name: Run benchmarks (no CodSpeed upload)
+        if: ${{ github.repository_owner == 'vite-plus-ecosystem-ci' }}
+        run: vp test bench --run
