@@ -1,4 +1,16 @@
 minimumReleaseAgeExclude:
+  # ecosystem-ci smoke test: preview builds and freshly pinned toolchain packages
+  - '@oxc-project/*'
+  - oxlint
+  - oxfmt
+  - oxlint-tsgolint
+  - '@oxlint-tsgolint/*'
+  - vitest
+  - tinybench
+  - yuku-core
+  - yuku-parser
+  - '@yuku-core/*'
+  - '@yuku-toolchain/*'
   - '@voidzero-dev/*'
   - vite-plus
   - '@vitest/*'
