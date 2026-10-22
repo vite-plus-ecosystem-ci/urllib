@@ -30,7 +30,10 @@ jobs:
       # token (401). Run the same benchmarks on the fork, without the upload.
       - name: Run benchmarks
         if: ${{ github.repository_owner != 'vite-plus-ecosystem-ci' }}
-        uses: CodSpeedHQ/action@821a40cd6c80e3cfe387caf55668287addd808da # v5
+        # Ecosystem-ci smoke test: CodSpeed moved its v5 tag to v5.6.0 after the base
+        # commit, so zizmor's ref-version-mismatch audit fails the CI check job on
+        # its first step. The pinned SHA is v5.5.0; only the comment changes.
+        uses: CodSpeedHQ/action@821a40cd6c80e3cfe387caf55668287addd808da # v5.5.0
         with:
           mode: simulation
           run: vp test bench --run
