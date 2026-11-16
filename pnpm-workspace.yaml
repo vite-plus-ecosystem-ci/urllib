@@ -17,8 +17,15 @@ minimumReleaseAgeExclude:
   - undici
   - '@oxfmt/*'
   - '@oxlint/*'
-  - oxfmt@0.70.0
-  - oxlint@1.85.0
+  - '@tsrs/darwin-arm64@7.1.0-beta.tsrs2'
+  - '@tsrs/darwin-x64@7.1.0-beta.tsrs2'
+  - '@tsrs/linux-arm64-gnu@7.1.0-beta.tsrs2'
+  - '@tsrs/linux-arm64-musl@7.1.0-beta.tsrs2'
+  - '@tsrs/linux-x64-gnu@7.1.0-beta.tsrs2'
+  - '@tsrs/linux-x64-musl@7.1.0-beta.tsrs2'
+  - '@tsrs/win32-arm64@7.1.0-beta.tsrs2'
+  - '@tsrs/win32-x64@7.1.0-beta.tsrs2'
+  - tsrs@7.1.0-beta.tsrs2
 overrides:
   vite@*: 'catalog:'
   vitest@*: 'catalog:'
@@ -30,7 +37,7 @@ peerDependencyRules:
     vite: '*'
     vitest: '*'
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@1.6.0
+  vite: npm:@voidzero-dev/vite-plus-core@0.0.0-commit.309b96aaf065d95452ca218076c666671cf36440
   vitest: 5.1.0
-  vite-plus: 1.6.0
+  vite-plus: 0.0.0-commit.309b96aaf065d95452ca218076c666671cf36440
   '@vitest/coverage-v8': 5.1.0
